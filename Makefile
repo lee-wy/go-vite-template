@@ -3,7 +3,7 @@ dev:
 
 build:
 	cd frontend && npm run build && \
-	cd ../backend && mkdir -p ../bin && go build -o ../bin/backend ./...
+	cd ../backend && mkdir -p ../bin && go build -o ../bin/backend ./cmd
 
 clean:
 	@rm -f dev.log dev.log.new && \
