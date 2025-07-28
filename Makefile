@@ -1,6 +1,3 @@
-SHELL := /bin/bash
-
-.PHONY: dev build clean install test lint format tail-log check-deps
 dev:
 	@SHOREMAN_COLORS=always scripts/shoreman.sh 2>&1 | tee dev.log
 
