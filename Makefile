@@ -1,4 +1,4 @@
-.PHONY: dev build clean install test lint format tail-log check-deps
+.PHONY: dev build clean install lint format tail-log
 
 dev:
 	@SHOREMAN_COLORS=always scripts/shoreman.sh | tee dev.log
