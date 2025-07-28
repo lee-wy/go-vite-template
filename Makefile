@@ -2,54 +2,48 @@ SHELL := /bin/bash
 
 .PHONY: dev build clean install test lint format tail-log check-deps
 dev:
-	@echo "Starting development servers (frontend on :5173, backend on :8080)..."
+	@echo "Starting dev servers..."
 	@SHOREMAN_COLORS=always scripts/shoreman.sh 2>&1 | tee dev.log
 
 build:
-	@echo "Building frontend application..." && \
+	@echo "Building..." && \
 	cd frontend && npm run build && \
-	echo "Building backend server..." && \
-	cd ../backend && mkdir -p ../bin && go build -o ../bin/backend ./... && \
-	echo "Build completed successfully - binaries available in bin/"
+	echo "  Backend..." && \
+	cd ../backend && mkdir -p ../bin && go build -o ../bin/backend ./...
 
 clean:
-	@echo "Cleaning build artifacts and cache files..."
+	@echo "Cleaning..."
 	@rm -f dev.log dev.log.new && \
 	cd frontend && npm run clean 2>/dev/null || true && \
 	rm -rf node_modules/.cache dist build .next out coverage && \
-	cd ../backend && go clean && \
-	echo "Clean completed"
+	cd ../backend && go clean
 
 install: check-deps
-	@echo "Installing project dependencies..."
-	@echo "Installing frontend dependencies..." && \
+	@echo "Installing dependencies..."
+	@echo "  Frontend..." && \
 	cd frontend && npm install && \
-	echo "Installing backend dependencies..." && \
-	cd ../backend && go mod tidy && \
-	echo "All dependencies installed successfully"
+	echo "  Backend..." && \
+	cd ../backend && go mod tidy
 
 test:
-	@echo "Running test suite for frontend and backend..."
-	@echo "Running frontend tests..." && \
+	@echo "Running tests..."
+	@echo "  Frontend..." && \
 	cd frontend && npm test && \
-	echo "Running backend tests..." && \
-	cd ../backend && go test ./... && \
-	echo "All tests completed"
+	echo "  Backend..." && \
+	cd ../backend && go test ./...
 
 lint:
-	@echo "Running linting checks on frontend and backend code..."
-	@echo "Linting frontend..." && \
+	@echo "Linting..."
+	@echo "  Frontend..." && \
 	cd frontend && npx eslint . && \
-	echo "Linting backend..." && \
-	cd ../backend && go vet ./... && \
-	echo "Linting completed successfully"
+	echo "  Backend..." && \
+	cd ../backend && go vet ./...
 
 format:
-	@echo "Formatting frontend and backend code..."
+	@echo "Formatting..."
 	@cd frontend && npx prettier --write . && \
-	echo "Frontend formatting completed" && \
-	cd ../backend && go fmt ./... && \
-	echo "Backend formatting completed"
+	echo "  Backend..." && \
+	cd ../backend && go fmt ./...
 
 tail-log:
 	@echo "Reading last 100 lines of development log..."
