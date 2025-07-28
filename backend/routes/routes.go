@@ -7,6 +7,5 @@ import (
 )
 
 func SetupRoutes(r *chi.Mux) {
-	r.Get("/", handlers.HomeHandler)
 	r.Get("/health", handlers.HealthHandler)
 }
