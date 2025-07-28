@@ -18,7 +18,6 @@ Full-stack application with React/TypeScript frontend and Go backend. Uses Vite 
 
 - `make dev` - Starts development servers (backend on port 8080, frontend on port 5173). We rarely need this command
 - `make build` - Build production application (frontend and backend binaries in bin/)
-- `make test` - Run tests for both frontend and backend
 - `make install` - Install dependencies (npm install + go mod tidy)
 - `make lint` - Run linters (eslint for frontend, go vet for backend)
 - `make format` - Format frontend (Prettier) and backend (go fmt) code
