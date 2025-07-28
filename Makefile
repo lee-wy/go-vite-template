@@ -6,7 +6,7 @@ build:
 	cd ../backend && mkdir -p ../bin && go build -o ../bin/backend ./cmd
 
 clean:
-	@rm -f dev.log dev.log.new && \
+	@rm -rf dev.log dev.log.new bin && \
 	cd frontend && npm run clean 2>/dev/null || true && \
 	rm -rf node_modules/.cache dist build .next out coverage && \
 	cd ../backend && go clean
