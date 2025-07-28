@@ -1,4 +1,4 @@
-.PHONY: dev build clean install lint format tail-log
+.PHONY: dev build clean install lint format test tail-log
 
 dev:
 	@SHOREMAN_COLORS=always scripts/shoreman.sh | tee dev.log
@@ -24,6 +24,10 @@ lint:
 format:
 	@cd frontend && npm run format
 	@cd backend && go fmt ./...
+
+test:
+	@cd frontend && npm test
+	@cd backend && go test ./...
 
 tail-log:
 	@tail -n 100 dev.log | perl -pe 's/\e\[[0-9;]*m(?:\e\[K)?//g';
