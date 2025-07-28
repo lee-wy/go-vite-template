@@ -19,18 +19,14 @@ function App() {
   return (
     <>
       <div>
-        <div>
-          <h2>Backend Health Status</h2>
-          {loading ? (
-            <p>Checking health...</p>
-          ) : health ? (
-            <div>
-              <p>Status: <strong style={{color: health.message === 'OK' ? 'green' : 'red'}}>{health.message}</strong></p>
-            </div>
-          ) : (
-            <p>Unable to check health</p>
-          )}
-        </div>
+        <h2>Backend Health Status</h2>
+        {loading ? (
+          <p>Checking health...</p>
+        ) : health ? (
+          <p><strong style={{color: health.message === 'OK' ? 'green' : 'red'}}>{health.message}</strong></p>
+        ) : (
+          <p>Unable to check health</p>
+        )}
       </div>
     </>
   )
