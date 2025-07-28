@@ -1,3 +1,5 @@
+.PHONY: dev build clean install test lint format tail-log check-deps
+
 dev:
 	@SHOREMAN_COLORS=always scripts/shoreman.sh 2>&1 | tee dev.log
 
@@ -28,7 +30,11 @@ format:
 	cd ../backend && go fmt ./...
 
 tail-log:
-	@if [ -f dev.log ]; then tail -n 100 dev.log; else echo "No dev.log found - run 'make dev' first"; fi
+	@if [ -f dev.log ]; then \
+		tail -n 100 dev.log | perl -pe 's/\e\[[0-9;]*m(?:\e\[K)?//g'; \
+	else \
+		echo "No dev.log found - run 'make dev' first"; \
+	fi
 
 check-deps:
 	@command -v node >/dev/null 2>&1 || { echo "Error: Node.js is required but not installed"; exit 1; }
