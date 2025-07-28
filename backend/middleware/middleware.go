@@ -1,11 +1,12 @@
 package middleware
 
 import (
+	"go-vite-template/backend/config"
 	"strings"
+
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 	"github.com/go-chi/cors"
-	"untitled/backend/config"
 )
 
 func SetupMiddleware(r *chi.Mux, cfg *config.Config) {

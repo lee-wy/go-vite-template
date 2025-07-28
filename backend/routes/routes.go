@@ -1,8 +1,9 @@
 package routes
 
 import (
+	"go-vite-template/backend/handlers"
+
 	"github.com/go-chi/chi/v5"
-	"untitled/backend/handlers"
 )
 
 func SetupRoutes(r *chi.Mux) {

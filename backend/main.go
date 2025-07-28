@@ -9,10 +9,11 @@ import (
 	"syscall"
 	"time"
 
+	"go-vite-template/backend/config"
+	"go-vite-template/backend/middleware"
+	"go-vite-template/backend/routes"
+
 	"github.com/go-chi/chi/v5"
-	"untitled/backend/config"
-	"untitled/backend/middleware"
-	"untitled/backend/routes"
 )
 
 func main() {

@@ -1,4 +1,4 @@
-module untitled/backend
+module go-vite-template/backend
 
 go 1.24.5
 
