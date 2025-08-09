@@ -13,7 +13,7 @@ type Config struct {
 func New() *Config {
 	return &Config{
 		Port:           getEnv("PORT", "8080"),
-		Environment:    getEnv("ENVIRONMENT", "development"),
+		Environment:    getEnv("ENVIRONMENT", "dev"),
 		AllowedOrigins: getEnv("ALLOWED_ORIGINS", "http://localhost:5173"),
 	}
 }

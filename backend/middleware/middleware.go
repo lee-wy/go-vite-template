@@ -29,7 +29,7 @@ func SetupMiddleware(r *chi.Mux, cfg *config.Config) {
 		MaxAge:           300,
 	}))
 
-	if cfg.Environment == "production" {
+	if cfg.Environment == "prod" {
 		r.Use(middleware.Compress(5))
 		r.Use(middleware.RealIP)
 	}

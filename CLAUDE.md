@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Full-stack application with React/TypeScript frontend and Go backend. Uses Vite for frontend development and chi router for Go HTTP server. Development managed through Procfile using shoreman for process orchestration.
+Full-stack application with React/TypeScript frontend and Go backend. Uses Vite for frontend development and chi router for Go HTTP server.
 
 ## Architecture
 

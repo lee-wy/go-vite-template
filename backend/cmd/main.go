@@ -30,7 +30,7 @@ func main() {
 	}
 
 	go func() {
-		log.Printf("Server starting on port %s (environment: %s)", cfg.Port, cfg.Environment)
+		log.Printf("Server starting on port %s (%s)", cfg.Port, cfg.Environment)
 		if err := server.ListenAndServe(); err != nil && err != http.ErrServerClosed {
 			log.Fatalf("Server failed to start: %v", err)
 		}
